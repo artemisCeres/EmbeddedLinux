@@ -11,14 +11,17 @@
     }
 
     int promptMin(void){
-        userMin = read_int("Enter minimum value: \n");
+        printf("Enter minimum value: \n");
+        scanf("%d", &userMin);
         return userMin;
     }
 
     int promptMax(void){
-        userMax = read_int("Enter maximum value: \n");
+        printf("Enter maximum value: \n");
+        scanf("%d", &userMax);
         if(userMax <= userMin){
-            userMax = read_int("Maximum value should be larger than %d: \n", userMin);
+            printf("Maximum value should be larger than %d: \n", userMin);
+            scanf("%d", &userMax);
         }
         else{
             return userMax;
@@ -27,10 +30,12 @@
     }
 
     int promptLength(void){
-        userLength = read_int("Enter desired quantity: \n"); 
+        printf("Enter desired quantity: \n"); 
+        scanf("%d", &userLength);
         int x = userMax - userMin;
         if(userLength > x){
-            userLength = read_int("Please enter a number smaller than %d: \n", x); 
+            printf("Please enter a number smaller than %d: \n", x); 
+            scanf("%d", &userLength); 
 
         }
         else{
