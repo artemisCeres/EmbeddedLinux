@@ -6,10 +6,14 @@
 int main(void){
 int numArray[100];
 int randomInt;
+int y = 0;
 
-int userMin = promptMin();
-int userMax = promptMax();
-int userLength = promptLength();
+promptMin(&y);
+int userMin = y;
+promptMax(&y);
+int userMax = y;
+promptLength(&y);
+int userLength = y;
 
 
 for(int i = 1; i < userLength; i++){

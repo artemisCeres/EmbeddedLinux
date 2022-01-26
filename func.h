@@ -1,8 +1,8 @@
 #ifndef _FUNC_C_
 #define _FUNC_C_
 
-int promptMin();
-int promptMax();
-int promptLength();
+void promptMin(int *y);
+void promptMax(int *y);
+void promptLength(int *y);
 
 #endif
