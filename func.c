@@ -1,39 +1,19 @@
 #include "func.h"
 #include <stdio.h>
 
-    int userMin, userMax, userLength;
-
-    int read_int(void){
-        int x;
-        scanf("%d", &x);
-
-        return x;
+    void promptMin(int *y){
+        printf("Enter minimum value: \n");
+        scanf("%d", *y);
     }
 
-    int promptMin(void){
-        userMin = read_int("Enter minimum value: \n");
-        return userMin;
+    void promptMax(int *y){
+        printf("Enter maximum value: \n");
+        scanf("%d", *y);
+   
     }
 
-    int promptMax(void){
-        userMax = read_int("Enter maximum value: \n");
-        if(userMax <= userMin){
-            userMax = read_int("Maximum value should be larger than %d: \n", userMin);
-        }
-        else{
-            return userMax;
-        }
+    void promptLength(int *y){
+        printf("Enter desired quantity: \n"); 
+        scanf("%d", *y);
 
-    }
-
-    int promptLength(void){
-        userLength = read_int("Enter desired quantity: \n"); 
-        int x = userMax - userMin;
-        if(userLength > x){
-            userLength = read_int("Please enter a number smaller than %d: \n", x); 
-
-        }
-        else{
-            return userLength;
-        }
     }
