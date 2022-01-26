@@ -4,26 +4,48 @@
 #include <stdio.h>
 
 int main(void){
-int numArray[100];
+int *numArray;
 int randomInt;
-int y = 0;
+int userMin, userMax, userLength;
 
-promptMin(&y);
-int userMin = y;
-promptMax(&y);
-int userMax = y;
-promptLength(&y);
-int userLength = y;
+srand(time(NULL));
 
+promptMin(&userMin);
+promptMax(&userMax);
 
-for(int i = 1; i < userLength; i++){
-    srand(time(NULL));
-    randomInt = rand() % userMax + userMin;
-    numArray[i] = randomInt;
-
-    printf("%d", randomInt);
+if(userMin > userMax)
+{
+    printf("Maximum value must be greater than minimum value!\n");
+    promptMax(&userMax);
 }
 
+promptLength(&userLength);
+if(userLength > (userMax - userMin))
+{
+    printf("Quantity must be less than the difference of minimum and maximum value!\n");
+    promptLength(&userLength);
+}
+numArray = (int *) malloc(sizeof(int) * userLength);
+
+for(int i = 0; i < userLength; i++){
+    randomInt = (rand() % (userMax - userMin + 1)) + (userMin);
+    for(int j = 0; j < i; j++)
+    {
+        if (numArray[j]==randomInt)
+        {
+        randomInt = (rand() % (userMax - userMin + 1)) + (userMin);
+        }
+    }
+    numArray[i] = randomInt;
+    
+}
+
+printf("\nYour %d unique values between %d and %d are:\n", userLength, userMin, userMax);
+
+for(int i = 0; i < userLength; i++){
+     
+    printf("    Value %d: %d \n", i+1, numArray[i]);
+}
 return 0;
 
 }
